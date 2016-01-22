@@ -16,7 +16,7 @@ Do note that this state observable needs to be an object since react enforces th
 The current state of the observable can be accessed through the component state: `this.state`.
 
 ## Creating a Rx Component
-```
+```js
 import RxComponent from 'react-rx-component';
 import React from 'react';
 import ReactDOM from 'react-dom';
