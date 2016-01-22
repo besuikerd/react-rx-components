@@ -1,0 +1,37 @@
+{
+  "extends": "eslint:recommended",
+
+  "ecmaFeatures": {
+    "arrowFunctions": true,
+    "blockBindings": true,
+    "classes": true,
+    "defaultParams": true,
+    "destructuring": true,
+    "forOf": true,
+    "generators": true,
+    "modules": true,
+    "spread": true,
+    "templateStrings": true,
+    "jsx": true
+  },
+
+  "env": {
+    "browser": true,
+    "node": true
+  },
+
+  "rules":{
+    "camelcase": 1,
+    "comma-dangle": 2,
+    "brace-style": [2, "1tbs", {"allowSingleLine": true}],
+    "semi": [2, "always"],
+    "quotes": 0,
+    "no-var": 2,
+    "block-spacing": [2, "always"],
+
+    "no-unused-vars": [2, {
+      "vars": "local",
+      "varsIgnorePattern": "^$"
+    }]
+  }
+}
