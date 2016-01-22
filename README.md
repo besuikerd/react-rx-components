@@ -23,17 +23,17 @@ import ReactDOM from 'react-dom';
 import Rx from 'rx';
 
 let obs$ = Rx.Observable.interval(1000)
-  .map((x => {value: x}))
+  .startWith(0)
+  .map((x => ({value: x})));
 
 
-let Component = RxComponent(class extends React{
+let Component = RxComponent(class extends React.Component{
   render(){
-    <div>{this.state.value}</div>
+    return <div>{this.state.value}</div>
   }
 });
 
-ReactDOM.render(<Component state$={$obs}/>, document.getElementById('content'));
-
+ReactDOM.render(<Component state$={obs$}/>, document.getElementById('content'));
 ```
 
 More examples can be found in [examples](examples)
