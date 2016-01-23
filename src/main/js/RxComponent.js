@@ -12,7 +12,7 @@ export default (ComposedComponent, propName) => class extends ComposedComponent{
     if(super.componentWillMount){
       super.componentWillMount();
     }
-    if(!this.props[this.stateProp]){
+    if(!this.props[this.__stateProp]){
       let name = this.__proto__.__proto__.constructor.name
       if(name === '_class'){//anonymous class
         name = 'unnamed';
