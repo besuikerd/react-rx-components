@@ -1,7 +1,7 @@
 import Rx from 'rx';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import RxComponent from '../../../src/main/js/index';
+import RxComponent from 'react-rx-components';
 
 let click$ = new Rx.BehaviorSubject();
 

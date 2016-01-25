@@ -14,7 +14,8 @@ module.exports = {
     context: projectRoot,
     cache: true,
     entry: {
-        counter: './examples/counter/js/index.js'
+        counter: './examples/counter/js/app.js',
+        todo: './examples/todo/js/app.js'
     },
     output: {
         path: path.join(__dirname + '/../..', src.dist),
@@ -34,6 +35,7 @@ module.exports = {
             { test: /\.eot$/,    loader: 'file-loader?prefix=font/' },
             { test: /\.svg$/,    loader: 'file-loader?prefix=font/' },
 
+            { test: require.resolve("react"), loader: "expose?React" },
 
 
             // required for babel
@@ -45,13 +47,26 @@ module.exports = {
             }
         ]
     },
+    resolve: {
+        modulesDirectories:[
+          'node_modules',
+          'web_modules',
+          projectRoot
+        ],
+
+        alias: {
+            'react-rx-components': 'src/main/js/index.js'
+        }
+    },
+
+
     plugins: [
         new webpack.ProvidePlugin({
             // Automatically detect jQuery and $ as free var in modules
             // and inject the jquery library
             // This is required by many jquery plugins
             jQuery: 'jquery',
-            $: 'jquery'
+            $: 'jquery',
         }),
 
         new ExtractTextPlugin('stylesheets/[name].css'),
