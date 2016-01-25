@@ -21,7 +21,7 @@ Optionally a property name that is used to bind the observable to can be passed 
 
 ## Creating a Rx Component
 ```js
-import RxComponent from 'react-rx-component';
+import RxComponent from 'react-rx-components';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Rx from 'rx';
