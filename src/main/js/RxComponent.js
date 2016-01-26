@@ -1,10 +1,11 @@
 import Rx from 'rx';
 import React from 'react';
 
-export default (ComposedComponent, propName) => class extends ComposedComponent{
+export default (ComposedComponent, propName, valueName) => class extends ComposedComponent{
   constructor(props){
     super(props);
     this.__stateProp = propName || 'state$';
+    this.__valueProp = valueName || 'value';
     this.error$ = new Rx.Subject();
   }
 
@@ -22,7 +23,15 @@ export default (ComposedComponent, propName) => class extends ComposedComponent{
 
     let state$ = this.props[this.__stateProp];
     this.__stateSubscription = state$.subscribe(
-      e => this.setState(e),
+      e => {
+        if(typeof(e) === 'object' && e.constructor !== Array){
+          this.setState(e)
+        } else{
+          let stateObj = {};
+          stateObj[this.__valueProp] = e;
+          this.setState(stateObj);
+        }
+      },
       err => error$.onNext(err)
     )
   }

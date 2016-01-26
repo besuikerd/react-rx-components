@@ -18,4 +18,4 @@ export default RxComponent(class TodoList extends React.Component{
       )}
     </ul>
   }
-}, 'list$');
+}, 'list$', 'list');

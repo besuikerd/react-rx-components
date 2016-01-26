@@ -20,4 +20,4 @@ let list$ = eventSubject.scan(function(prevList, event) {
 }, [])
   .startWith([]);
 
-ReactDOM.render(<Todo $update={x => eventSubject.onNext(x)} list$={list$.map(list => ({list:list}))}/>, document.getElementById('content'));
+ReactDOM.render(<Todo $update={eventSubject.asSubscriber()} list$={list$}/>, document.getElementById('content'));

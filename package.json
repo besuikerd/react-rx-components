@@ -1,7 +1,7 @@
 {
   "name": "react-rx-components",
   "author": "Nick ten Veen",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "making react reactive",
   "repository": "https://github.com/besuikerd/react-rx-components",
   "main": "lib/index.js",
