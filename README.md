@@ -29,20 +29,20 @@ Using Rx, these entities can be modelled as follows:
 Or in code:
 
 ```js
-let Subscriber = new BehaviourSubject(initialState);
+let $subscriber = new BehaviourSubject(initialState);
 
-let input$ = subscription.scan((prevState, event) => {
+let input$ = $subscriber.scan((prevState, event) => {
   return calculateNewState(prevState, event);
 });
 
 
-let component = <Component input$={input$} $subscription={$subscription.asSubscriber()}/>;
+let component = <Component input$={input$} $subscriber={$subscriber.asSubscriber()}/>;
 
 ```
 
 A convention that helps me remembering what is what is to annotate an Observable with a `$` behind it (in the sense that it 'produces') and annotate Subscriptions with a `$` in front (in the sense that it 'consumes').
 
-Do note that you cannot actually pass `subject.onNext`! React modifies the this object to the component if you pass it a function. This can be worked around by calling `subject.asSubscriber()`.
+Do note that you cannot actually pass `$subscriber.onNext`! React modifies the this object to the component if you pass it a function. This can be worked around by calling `$subscriber.asSubscriber()`.
 
 The nice thing about this that all inputs and outputs are explicit. You can test indivual components easily by
 attaching mock Observables and Subscriptions. This structure makes composition really easy. All you need to do is
