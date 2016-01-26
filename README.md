@@ -12,6 +12,7 @@ subscriptions.
 A component can be seen as a dataflow component with inputs and outputs:
 
 **Component inputs are Observables**
+
 **Component outputs are Subscribers**
 
 Both inputs and outputs are injected into components. Outside the components, the output of the component can be
