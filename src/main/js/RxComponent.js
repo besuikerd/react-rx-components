@@ -1,7 +1,7 @@
 import Rx from 'rx';
 import React from 'react';
 
-export default (ComposedComponent, propName, valueName) => class extends ComposedComponent{
+export default (propName, valueName) => (ComposedComponent) => class extends ComposedComponent{
   constructor(props){
     super(props);
     this.__stateProp = propName || 'state$';

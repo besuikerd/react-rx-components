@@ -12,13 +12,14 @@ let timer$ = Rx.Observable.interval(1000)
   )
   .startWith(0)
 
-let Counter = RxComponent(class Counter extends React.Component{ //RxComponent is a Higher Order component, it decorates the input class
+@RxComponent('timer$', 'time')
+class Counter extends React.Component{ //RxComponent is a Higher Order component, it decorates the input class
   render(){
     return <div>
       <div>Time elapsed: {this.state.time}</div>
       <button onClick={x => this.props.click$.onNext(x)}>Reset</button>
     </div>
   }
-}, 'timer$', 'time');
+}
 
 ReactDOM.render(<Counter timer$={timer$} click$={click$}/>, document.getElementById('content'));

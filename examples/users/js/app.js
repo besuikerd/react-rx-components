@@ -12,7 +12,8 @@ let users$ = Rx.DOM.ajax('/examples/users/public/users.json')
   .startWith([]);
 
 /**
- * cycles through the users every second
+ * cycles through the users every
+ * second
  */
 let userCycle$ = users$
   .skip(1) //drop initial empty list
